@@ -1,0 +1,52 @@
+<!DOCTYPE html> <!-- HTML5 문서 선언 -->
+<html lang="ko"> <!-- 문서 언어를 한국어로 설정 -->
+<head>
+	<meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
+	<title>깜짝 효과</title> <!-- 브라우저 탭 제목 -->
+	<style>
+		/* 귀신 이미지를 화면 중앙에 크게 표시, 처음엔 숨김 */
+		#ghost {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 9999;
+			width: 600px;
+			max-width: 90vw;
+		}
+		/* 배경을 검은색으로 설정 */
+		body {
+			background: #000;
+		}
+		/* 카운트다운 숫자 색상을 흰색으로 설정 */
+		#countdown {
+			color: #fff;
+			font-size: 4rem;
+			text-align: center;
+			margin-top: 40px;
+		}
+	</style>
+</head>
+<body>
+    <h1>카운트다운</h1>
+    <div id="countdown">10</div>
+    <script src="script.js"></script>
+	<!-- 귀신 이미지, 처음엔 숨겨짐 -->
+	<img id="ghost" src="rnltls.png" alt="귀신 이미지">
+	<!-- 샘플 소리 오디오, 자동 재생 안됨 -->
+	<audio id="scream" src="아아아악!!.mp3"></audio>
+	<script>
+		// 페이지가 로드되면 10초 후에 이미지와 소리 출력
+		window.onload = function() {
+			setTimeout(function() {
+				var ghost = document.getElementById('ghost'); // 귀신 이미지 요소 가져오기
+				var scream = document.getElementById('scream'); // 오디오 요소 가져오기
+				ghost.style.display = 'block'; // 이미지를 화면에 표시
+				scream.volume = 1.0; // 오디오 볼륨을 최대로 설정
+				scream.play(); // 오디오 재생
+			}, 10000); // 10초(10000ms) 후 실행
+		};
+	</script>
+</body>
+</html>
